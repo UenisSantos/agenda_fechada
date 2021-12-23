@@ -15,6 +15,9 @@ class _AppModuleState extends State<AppModule> {
       providers: [
         Provider(
           create: (context) => SqlConectionFactory(),
+
+
+          
         )
       ],
       child:

@@ -92,7 +92,7 @@ class LoginPage extends StatelessWidget {
                                         color: Color(0xffb49fcc)),
                                   ),
                                   TextButton(
-                                      onPressed: () {},
+                                      onPressed: () =>Navigator.pushNamed(context, '/registro'),
                                       child: Text(
                                         'cadastre-se ',
                                         style: const TextStyle(

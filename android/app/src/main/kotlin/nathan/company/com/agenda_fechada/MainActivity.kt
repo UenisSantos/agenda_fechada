@@ -1,4 +1,4 @@
-package com.example.agenda_fechada
+package nathan.company.com.agenda_fechada
 
 import io.flutter.embedding.android.FlutterActivity
 

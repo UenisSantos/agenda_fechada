@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.agenda_fechada">
+    package="nathan.company.com.agenda_fechada">
    <application
+   android:usesCleartextTraffic="true"
         android:label="agenda_fechada"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

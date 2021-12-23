@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "14147010509",
+    "firebase_url": "https://loja-virtual-a2073.firebaseio.com",
+    "project_id": "loja-virtual-a2073",
+    "storage_bucket": "loja-virtual-a2073.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14147010509:android:5bd3ff3bec5ffada12ce84",
+        "android_client_info": {
+          "package_name": "nathan.company.com.agenda_fechada"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14147010509-r4ig75kgi26hsm8u58b8verhhesv482v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nathan.company.com.agenda_fechada",
+            "certificate_hash": "cf0d2bcdf8e2b3d7a24e1c49f5ba14f68c779acc"
+          }
+        },
+        {
+          "client_id": "14147010509-u8defae84f62sejdi804sfe22enmemp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFxNd_UeapjAGIW81Db8lKdjUGpZlx65M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14147010509-u8defae84f62sejdi804sfe22enmemp5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
