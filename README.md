@@ -1,16 +1,15 @@
 # agenda_fechada
+## nesse aplicativo estou utlizando o provider para prover o estado do app, no qual modularizo as rotas para evitar repetição de codigos
 
-A new Flutter project.
+## tela de login
 
-## Getting Started
+Foi utilazado o Firebase para autenticação , O Firebase é um Banco de Dados não relacional ou seja, não utiliza SQL e praticamente nenhum desses conceitos citados acima, no caso do Firebase o sistema utilizado é o JSON (Javascript Object Notation) e dependendo do objetivo da sua aplicação, é um match perfeito.
+- [## caso não tenha conhecimento ,segue a ducumentaçaõ que é muito rica de informações](https://firebase.google.com/?hl=pt)
 
-This project is a starting point for a Flutter application.
+<img src="https://i.ibb.co/Vq2g8RG/Screenshot-1640305669.png" alt="drawing" width="200"/>
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<a href="https://ibb.co/wzMS1Vq"><img src="https://i.ibb.co/Vq2g8RG/Screenshot-1640305669.png" alt="Screenshot-1640305669" border="0"></a>
+
+
