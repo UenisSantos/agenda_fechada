@@ -10,9 +10,9 @@ Foi utilazado o Firebase para autenticação , O Firebase é um Banco de Dados n
 
 
 ## tela de cadastro
-<img src="https://i.ibb.co/1drwGDt/cadastro.png" alt="cadastro" border="0">
+<img src="https://i.ibb.co/1drwGDt/cadastro.png" alt="drawing" border="0" width="200">
 
 ## tratamento do email e senha
-<img src="https://i.ibb.co/SffRzFC/tratamento.png" alt="tratamento" border="0">
-<img src="https://i.ibb.co/NrfY2wQ/tratamento2.png" alt="tratamento2" border="0">
-<img src="https://i.ibb.co/VpxZgWD/tratamento3.png" alt="tratamento3" border="0">
+<img src="https://i.ibb.co/SffRzFC/tratamento.png" alt="drawing" border="0" width="200">
+<img src="https://i.ibb.co/NrfY2wQ/tratamento2.png" alt="drawing" border="0" width="200">
+<img src="https://i.ibb.co/VpxZgWD/tratamento3.png" alt="drawing" border="0" width="200">
