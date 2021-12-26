@@ -21,7 +21,7 @@ class UserRepositoryImplement implements UserRepository {
         final loginType = await _firebaseAuth.fetchSignInMethodsForEmail(email);
 
         if (loginType.contains('password')) {
-          throw AuthException(menssage: 'email ja esta sendo utilizado');
+          throw AuthException(menssage: 'email ja esta sendo utilizado,favor escolger outro email');
         } else {
           throw AuthException(
               menssage: 'da ultima vez você ultizou o google pra fazer login');
@@ -29,7 +29,6 @@ class UserRepositoryImplement implements UserRepository {
       } else {
         throw AuthException(menssage: e.message ?? 'erro ao cadastrar usuario');
       }
-      // TODO
     }
   }
 }

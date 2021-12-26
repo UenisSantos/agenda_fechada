@@ -10,6 +10,4 @@ Foi utilazado o Firebase para autenticação , O Firebase é um Banco de Dados n
 
 
 
-<a href="https://ibb.co/wzMS1Vq"><img src="https://i.ibb.co/Vq2g8RG/Screenshot-1640305669.png" alt="Screenshot-1640305669" border="0"></a>
-
 

@@ -5,9 +5,13 @@ class TexFormPersonalizado extends StatelessWidget {
   final String label;
   final IconButton? suffixIcon;
   final bool obscure;
+  final TextEditingController? controller;
+  final FormFieldValidator <String>?validator;
   ValueNotifier<bool> eye;
 
   TexFormPersonalizado({
+    this.validator,
+    this.controller,
     this.suffixIcon,
     required this.label,
     this.obscure = false,
@@ -23,7 +27,11 @@ class TexFormPersonalizado extends StatelessWidget {
           valueListenable: eye,
           builder: (_, Value, child) {
             return TextFormField(
+validator: validator,
+controller: controller,
+
               decoration: InputDecoration(
+            
                   labelText: label,
                   labelStyle: TextStyle(color: Color(0xffb49fcc), fontSize: 20),
                   border: OutlineInputBorder(

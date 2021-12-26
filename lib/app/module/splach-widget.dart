@@ -3,25 +3,13 @@ import 'package:agenda_fechada/app/core/database/sql_conect_factory.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Splach extends StatefulWidget {
+class SplachPage extends StatefulWidget {
   @override
-  _SplachState createState() => _SplachState();
+  _SplachPageState createState() => _SplachPageState();
 }
 
-class _SplachState extends State<Splach> {
-  final observerApp = ObserverSqlite();
+class _SplachPageState extends State<SplachPage> {
 
-  @override
-  void initState() {
-    WidgetsBinding.instance?.addObserver(observerApp);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance?.removeObserver(observerApp);
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
