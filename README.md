@@ -12,7 +12,7 @@ Foi utilazado o Firebase para autenticação , O Firebase é um Banco de Dados n
 ## tela de cadastro
 <img src="https://i.ibb.co/1drwGDt/cadastro.png" alt="drawing" border="0" width="200">
 
-## tratamento do email e senha
+## tratamento do email e 
 <img src="https://i.ibb.co/SffRzFC/tratamento.png" alt="drawing" border="0" width="200">
 <img src="https://i.ibb.co/NrfY2wQ/tratamento2.png" alt="drawing" border="0" width="200">
 <img src="https://i.ibb.co/VpxZgWD/tratamento3.png" alt="drawing" border="0" width="200">
