@@ -1,3 +1,4 @@
+import 'package:agenda_fechada/app/core/database/notifier/default_listiner_notifier.dart';
 import 'package:agenda_fechada/app/module/auth/registro/register_controller.dart';
 import 'package:agenda_fechada/app/ui/logo.dart';
 import 'package:agenda_fechada/app/ui/text_Form.dart';
@@ -29,18 +30,20 @@ class _RegistroState extends State<Registro> {
 
   @override
   void initState() {
-    context.read<RegisterController>().addListener(() {
-      final controller = context.read<RegisterController>();
-      var success = controller.success;
-      var error = controller.error;
-
-      if (success) {
-        Navigator.of(context).pop();
-      } else if (error != null && error.isNotEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error),backgroundColor: Colors.red,
-        ));
-      }
-    });
+    var defaultListener = DefaultListinerNotifier(
+        changernotifier: context.read<RegisterController>());
+    defaultListener.listiner(
+        context: context,
+        successVoidCallback: (notifier, listeneInstance) {
+          listeneInstance.dispose();
+          Navigator.of(context).pop();
+        },
+        errorCallback:(notifier, listeneInstance){}
+        
+        
+        
+        );
+        
     super.initState();
   }
 
