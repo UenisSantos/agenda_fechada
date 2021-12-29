@@ -1,4 +1,5 @@
 import 'package:agenda_fechada/app/auth_exception/auth_exception.dart';
+import 'package:agenda_fechada/app/ui/messages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:agenda_fechada/app/repository/use/user.repository.dart';
@@ -44,11 +45,26 @@ class UserRepositoryImplement implements UserRepository {
     } on PlatformException catch (e) {
       throw AuthException(menssage: e.message ?? 'erro ao realizar o login');
     } on FirebaseAuthException catch (e) {
-
       throw AuthException(menssage: e.message ?? 'descupe algo deu errado');
-
-
-
     }
   }
+
+  @override
+  Future<void> recoverPassword(String email) async {
+    // TODO: implement recoverPassword
+    try {
+      final loginRecover =
+          await _firebaseAuth.fetchSignInMethodsForEmail(email);
+      if (loginRecover.contains('password')) {
+        await _firebaseAuth.sendPasswordResetEmail(email: email);
+      } else {
+        throw AuthException(
+            menssage:
+                'seu cadastro foi feito pelo login do google ,não pode resetar senha');
+      }
+    } on PlatformException catch (e) {
+      throw AuthException(menssage: e.message ?? 'erro ao resetar senha');
+    }
+  }
+
 }

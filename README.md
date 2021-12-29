@@ -18,7 +18,12 @@ Foi utilazado o Firebase para autenticação , O Firebase é um Banco de Dados n
 <img src="https://i.ibb.co/VpxZgWD/tratamento3.png" alt="drawing" border="0" width="300">
 
 
-##tela de login
-o login tambem recebeu o tratamento de error em relacão ao email e senha
+## tratamento da recuperaçao de senha 
 
-<img src="https://i.ibb.co/ssfT4Nh/Screenshot-1640739842.png" alt="Screenshot-1640739842" border="0"width="300">
+
+aproveitei a propria tela de login para fazer o reset de senha obrigando o usuario a digitar o email antes de clicar no botao de reset  adicionei um focus no email caso o mesmo não esteja preenchido
+<img src="https://i.ibb.co/svLy5pZ/Screenshot-1640821591.png" alt="Screenshot-1640821591" border="0"width="300">
+
+
+caso consiga enviar um link de redefiniçao de senha o usuario é informado
+<img src="https://i.ibb.co/TKtXPg5/Screenshot-1640821623.png" alt="Screenshot-1640821623" border="0"width="300">

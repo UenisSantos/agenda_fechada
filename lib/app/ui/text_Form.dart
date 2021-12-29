@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 
 class TexFormPersonalizado extends StatelessWidget {
   final String label;
+
+  final FocusNode? focusNode;
   final IconButton? suffixIcon;
   final bool obscure;
   final TextEditingController? controller;
-  final FormFieldValidator <String>?validator;
+  final FormFieldValidator<String>? validator;
   ValueNotifier<bool> eye;
 
   TexFormPersonalizado({
+    this.focusNode,
     this.validator,
     this.controller,
     this.suffixIcon,
@@ -27,11 +30,10 @@ class TexFormPersonalizado extends StatelessWidget {
           valueListenable: eye,
           builder: (_, Value, child) {
             return TextFormField(
-validator: validator,
-controller: controller,
-
+              validator: validator,
+              controller: controller,
+              focusNode: focusNode,
               decoration: InputDecoration(
-            
                   labelText: label,
                   labelStyle: TextStyle(color: Color(0xffb49fcc), fontSize: 20),
                   border: OutlineInputBorder(

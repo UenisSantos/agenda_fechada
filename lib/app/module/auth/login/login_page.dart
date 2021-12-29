@@ -1,6 +1,8 @@
+import 'package:agenda_fechada/app/auth_exception/auth_exception.dart';
 import 'package:agenda_fechada/app/core/database/notifier/default_listiner_notifier.dart';
 import 'package:agenda_fechada/app/module/auth/login/login_controller.dart';
 import 'package:agenda_fechada/app/ui/logo.dart';
+import 'package:agenda_fechada/app/ui/messages.dart';
 import 'package:agenda_fechada/app/ui/text_Form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -14,6 +16,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   @override
+  final _emailFocus = FocusNode();
+  String messageReset = '';
   final _emailEC = TextEditingController();
   var key = GlobalKey<FormState>();
   final _senhaEC = TextEditingController();
@@ -26,6 +30,13 @@ class _LoginPageState extends State<LoginPage> {
     DefaultListinerNotifier(changernotifier: context.read<LoginControlller>())
         .listiner(
             context: context,
+            everCallback: (notifier, listenerInstance) {
+              if (notifier is LoginControlller) {
+                if (notifier.hasInfo) {
+                  Messages.of(context).ShowInfo(notifier.infoMessage!);
+                }
+              }
+            },
             successVoidCallback: (notifier, listenerInstance) {
               if (listenerInstance != null) {
                 print('login foi um sucesso');
@@ -57,6 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             TexFormPersonalizado(
                                 label: 'email',
+                                focusNode: _emailFocus,
                                 controller: _emailEC,
                                 validator: Validatorless.multiple([
                                   Validatorless.email('email é obrigatorio'),
@@ -82,7 +94,19 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                final email = _emailEC.text;
+
+                                if (email.isNotEmpty) {
+                                  context
+                                      .read<LoginControlller>()
+                                      .recoverPassword(email);
+                                } else {
+                                  Messages.of(context).ShowError(
+                                      'o email tem que esta preenchido');
+                                  _emailFocus.requestFocus();
+                                }
+                              },
                               child: Text(
                                 'esqueci a senha ?',
                                 style: TextStyle(color: Color(0xffDE8D7B)),

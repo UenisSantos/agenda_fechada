@@ -13,7 +13,12 @@ class UserServiceImplement implements UserService {
       _userRepository.register(email, password);
 
   @override
-  Future<User?> login(String email, String password) =>  _userRepository.login(email, password);
-    
-  
+  Future<User?> login(String email, String password) =>
+      _userRepository.login(email, password);
+
+  @override
+  Future<void> recoverPassword(String email) =>
+      _userRepository.recoverPassword(email);
+  // TODO: implement recoverPassword
+
 }
