@@ -23,7 +23,9 @@ class _RegistroState extends State<Registro> {
     _editingControllerEmail.dispose();
     _editingControllerSenha.dispose();
     _editingControllerConfimarSenha.dispose();
-    context.read<RegisterController>().removeListener(() {});
+
+    DefaultListinerNotifier(changernotifier: context.read<RegisterController>())
+        .dispose();
 
     super.dispose();
   }
@@ -38,12 +40,8 @@ class _RegistroState extends State<Registro> {
           listeneInstance.dispose();
           Navigator.of(context).pop();
         },
-        errorCallback:(notifier, listeneInstance){}
-        
-        
-        
-        );
-        
+        errorCallback: (notifier, listeneInstance) {});
+
     super.initState();
   }
 
