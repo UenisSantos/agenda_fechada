@@ -1,9 +1,11 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:agenda_fechada/app/auth_exception/auth_exception.dart';
-import 'package:agenda_fechada/app/ui/messages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:agenda_fechada/app/repository/use/user.repository.dart';
 import 'package:flutter/services.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class UserRepositoryImplement implements UserRepository {
   FirebaseAuth _firebaseAuth;
@@ -67,4 +69,46 @@ class UserRepositoryImplement implements UserRepository {
     }
   }
 
+  @override
+  Future<User?> googleLogin() async {
+    List<String>? loginMethods;
+
+    try {
+      final googleSign = GoogleSignIn();
+      final googleUser = await googleSign.signIn();
+      if (googleUser != null) {
+        loginMethods =
+            await _firebaseAuth.fetchSignInMethodsForEmail(googleUser.email);
+
+        if (loginMethods.contains('password')) {
+          throw AuthException(
+              menssage: 'você utilizou um email  E senha para cadastro ');
+        } else {
+          final googleAuth = await googleUser.authentication;
+
+          final firebaseCredential = GoogleAuthProvider.credential(
+              accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+
+          var userCredential =
+              await _firebaseAuth.signInWithCredential(firebaseCredential);
+          return userCredential.user;
+        }
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'account-exists-with-different-credential') {
+        throw AuthException(menssage: '''
+login invalidos vocẽ se registrou no epp:   
+ ${loginMethods ?.join(',')}
+''');
+      } else {
+        throw AuthException(menssage: 'erro ao realizar login');
+      }
+    }
+  }
+
+  @override
+  Future<void> logout() async {
+    await GoogleSignIn().signOut();
+    _firebaseAuth.signOut();
+  }
 }

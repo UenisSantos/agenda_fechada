@@ -19,6 +19,11 @@ class UserServiceImplement implements UserService {
   @override
   Future<void> recoverPassword(String email) =>
       _userRepository.recoverPassword(email);
-  // TODO: implement recoverPassword
+
+  @override
+  Future<User?> googleLogin() => _userRepository.googleLogin();
+
+  @override
+  Future<void> logout() => _userRepository.logout();
 
 }

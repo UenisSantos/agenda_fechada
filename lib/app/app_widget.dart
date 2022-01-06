@@ -1,6 +1,8 @@
 import 'package:agenda_fechada/app/core/database/observer_sqlite.dart';
 import 'package:agenda_fechada/app/core/database/sql_conect_factory.dart';
-import 'package:agenda_fechada/app/module/auth/login/auth_module.dart';
+import 'package:agenda_fechada/app/core/navigator/navigator_no_context.dart';
+import 'package:agenda_fechada/app/module/auth/auth_module.dart';
+import 'package:agenda_fechada/app/module/home/homer_module.dart';
 import 'package:agenda_fechada/app/module/splach-widget.dart';
 import 'package:agenda_fechada/app/ui/colo_theme.dart';
 import 'package:agenda_fechada/app/ui/extension_theme.dart';
@@ -34,20 +36,15 @@ class _AppWidgetState extends State<AppWidget> {
       MaterialApp(
         
         theme:  ColorThemeUi.themeData,
-        initialRoute: '/login',
-        routes: {...AuthModule().routers},
-        home: 
-         Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
+        navigatorKey: NavigatorNoContext.navigatorKey,
+        routes: {...AuthModule().routers,
+        ...HomerModule().routers,
+        
+        
+        },
 
-      ),
-        
-        body:
-        
-        SplachPage(),
-        )
-      
+        home: SplachPage()
+   
     );
   }
 }

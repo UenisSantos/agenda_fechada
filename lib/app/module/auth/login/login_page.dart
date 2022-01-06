@@ -38,10 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               }
             },
             successVoidCallback: (notifier, listenerInstance) {
-              if (listenerInstance != null) {
-                print('login foi um sucesso');
-                Navigator.pushNamed(context, 'splach');
-              }
+              
             });
 
     super.initState();
@@ -147,7 +144,11 @@ class _LoginPageState extends State<LoginPage> {
                                       borderRadius: BorderRadius.circular(20),
                                       borderSide: BorderSide.none),
                                   text: 'continue com google',
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    context
+                                        .read<LoginControlller>()
+                                        .googleLogin();
+                                  },
                                 ),
                               ),
                               Row(

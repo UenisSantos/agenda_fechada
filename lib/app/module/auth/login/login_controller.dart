@@ -1,7 +1,6 @@
 import 'package:agenda_fechada/app/auth_exception/auth_exception.dart';
 import 'package:agenda_fechada/app/core/database/notifier/default_changer_notifier.dart';
 import 'package:agenda_fechada/app/service/user/user_service.dart';
-import 'package:agenda_fechada/app/ui/messages.dart';
 
 class LoginControlller extends DefaultChangerNotifier {
   final UserService _userService;
@@ -39,6 +38,32 @@ class LoginControlller extends DefaultChangerNotifier {
       infoMessage = 'reset da senha enviado para o e-mail';
     } catch (e) {
       setError('erro ao resetar senha');
+    } finally {
+      hideLoading();
+      notifyListeners();
+    }
+  }
+
+  Future<void> googleLogin() async {
+    try {
+      showLoadingAndREsetState();
+      infoMessage = null;
+      notifyListeners();
+
+      final user = _userService.googleLogin();
+      if (user != null) {
+        success();
+      } else {    
+
+        setError('erro ao realizar login');         
+           _userService.logout();
+
+      }
+    } on AuthException catch (e) {      
+
+      setError(e.menssage);   
+         _userService.logout;
+
     } finally {
       hideLoading();
       notifyListeners();
